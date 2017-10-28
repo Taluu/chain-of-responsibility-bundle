@@ -1,0 +1,30 @@
+{
+    "name": "taluu/chain-of-responsability-bundle",
+    "description": "Bundle allowing to easily implement a chain of responsability pattern",
+    "type": "library",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Baptiste Clavié",
+            "email": "clavie.b@gmail.com"
+        }
+    ],
+
+    "require": {
+        "php": "^7.1",
+
+        "symfony/config": "^3.3 || ^4.0",
+        "symfony/dependency-injection": "^3.3 || ^4.0"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "ChainOfResponsabilityBundle\\": ["./src", "./test"]
+        }
+    }
+}
