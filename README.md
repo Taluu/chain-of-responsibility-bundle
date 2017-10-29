@@ -1,8 +1,7 @@
 Chain of Responsibility Bundle
 ==============================
-A simple bundle that helps to integrate a
-[chain of responsibility pattern](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern)
-through Symfony (3.3 and onwards supported). PHP 7.1 is a requirement.
+A simple bundle that helps to integrate a chain of responsibility pattern
+through Symfony (3.3 and onwards supported). PHP 7.1 is required.
 
 To install it through composer, you just need to require the
 `taluu/chain-of-responsibility-bundle` package. Other methods (zip, ... and so
@@ -39,10 +38,16 @@ The items are services identifiers, so these should be declared.
 
 ### Injecting Chains
 In the case you would want to inject the chains, the tip of each chain is
-aliased to a `chain_of_responsibility.chains.{{ name }}` (e.g 
+aliased to a `chain_of_responsibility.chains.{{ name }}` (e.g
 `chain_of_responsibility.chains.my_first_chain`). So use that identifier to
 inject the correct chain.
 
 Tests
 -----
 Tested through PHPUnit 6. So just run the tests and it should be all green. :}
+
+Looking for more ?
+------------------
+Checks out more information on this design pattern ;
+- https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern
+- https://github.com/domnikl/DesignPatternsPHP/tree/master/Behavioral/ChainOfResponsibilities
