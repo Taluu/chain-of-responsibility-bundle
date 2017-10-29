@@ -11,7 +11,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('chain_of_responsability');
+        $rootNode = $treeBuilder->root('chain_of_responsibility');
 
         $this->addIdentifierChainNode($rootNode);
 
