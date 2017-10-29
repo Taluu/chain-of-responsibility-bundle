@@ -12,7 +12,7 @@ class ChainPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $links = $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_IDENTIFIER);
+        $links = $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_LINKS);
         $tip = array_shift($links);
 
         // no tip... no chain

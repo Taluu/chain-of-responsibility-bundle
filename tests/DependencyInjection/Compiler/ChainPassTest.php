@@ -17,7 +17,7 @@ class ChainPassTest extends TestCase
     public function test_no_lists_no_chains()
     {
         $container = $this->prophesize(ContainerBuilder::class);
-        $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_IDENTIFIER)->willReturn([])->shouldBeCalled();
+        $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_LINKS)->willReturn([])->shouldBeCalled();
 
         $container->getDefinition(Argument::cetera())->shouldNotBeCalled();
 
@@ -33,7 +33,7 @@ class ChainPassTest extends TestCase
         $fooDefinition->addMethodCall('setSuccessor', [$barDefinition])->shouldBeCalled();
 
         $container = $this->prophesize(ContainerBuilder::class);
-        $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_IDENTIFIER)->willReturn(['foo', 'bar'])->shouldBeCalled();
+        $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_LINKS)->willReturn(['foo', 'bar'])->shouldBeCalled();
 
         $container->setAlias(LinkInterface::class, Argument::which('isPublic', false))->shouldBeCalled();
 
