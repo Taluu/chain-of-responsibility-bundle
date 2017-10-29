@@ -37,6 +37,12 @@ chain_of_responsibility:
 
 The items are services identifiers, so these should be declared.
 
+### Injecting Chains
+In the case you would want to inject the chains, the tip of each chain is
+aliased to a `chain_of_responsibility.chains.{{ name }}` (e.g 
+`chain_of_responsibility.chains.my_first_chain`). So use that identifier to
+inject the correct chain.
+
 Tests
 -----
 Tested through PHPUnit 6. So just run the tests and it should be all green. :}
