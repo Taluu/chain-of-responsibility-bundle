@@ -1,5 +1,5 @@
 <?php
-namespace ChainOfResponsabilityBundle\DependencyInjection\Compiler;
+namespace ChainOfResponsibilityBundle\DependencyInjection\Compiler;
 
 use PHPUnit\Framework\TestCase;
 
@@ -9,8 +9,8 @@ use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use ChainOfResponsabilityBundle\LinkInterface;
-use ChainOfResponsabilityBundle\DependencyInjection\ChainOfResponsabilityExtension;
+use ChainOfResponsibilityBundle\LinkInterface;
+use ChainOfResponsibilityBundle\DependencyInjection\ChainOfResponsibilityExtension;
 
 class ChainPassTest extends TestCase
 {
@@ -18,7 +18,7 @@ class ChainPassTest extends TestCase
     {
         $container = $this->prophesize(ContainerBuilder::class);
         $container
-            ->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAINS)
+            ->getParameter(ChainOfResponsibilityExtension::PARAMETER_CHAINS)
             ->willReturn([])
             ->shouldBeCalled()
         ;
@@ -44,14 +44,14 @@ class ChainPassTest extends TestCase
 
         $container = $this->prophesize(ContainerBuilder::class);
         $container
-            ->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAINS)
+            ->getParameter(ChainOfResponsibilityExtension::PARAMETER_CHAINS)
             ->willReturn(['foo' => ['bar', 'baz']])
             ->shouldBeCalled()
         ;
 
         $container
             ->setAlias(
-                sprintf(ChainOfResponsabilityExtension::SERVICE_TEMPLATE, 'foo'),
+                sprintf(ChainOfResponsibilityExtension::SERVICE_TEMPLATE, 'foo'),
                 Argument::which('isPublic', false)
             )->shouldBeCalled()
         ;

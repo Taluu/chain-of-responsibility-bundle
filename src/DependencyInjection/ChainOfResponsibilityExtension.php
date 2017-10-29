@@ -1,11 +1,11 @@
 <?php
-namespace ChainOfResponsabilityBundle\DependencyInjection;
+namespace ChainOfResponsibilityBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class ChainOfResponsabilityExtension extends Extension
+class ChainOfResponsibilityExtension extends Extension
 {
     const SERVICE_TEMPLATE = 'chain_of_responsability.chain.%s';
     const PARAMETER_CHAINS = 'chain_of_responsability.chains';

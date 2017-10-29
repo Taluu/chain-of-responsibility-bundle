@@ -1,5 +1,5 @@
 <?php
-namespace ChainOfResponsabilityBundle\DependencyInjection;
+namespace ChainOfResponsibilityBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 

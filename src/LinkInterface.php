@@ -1,5 +1,5 @@
 <?php
-namespace ChainOfResponsabilityBundle;
+namespace ChainOfResponsibilityBundle;
 
 interface LinkInterface
 {

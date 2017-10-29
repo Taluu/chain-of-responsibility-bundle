@@ -1,6 +1,6 @@
 {
-    "name": "taluu/chain-of-responsability-bundle",
-    "description": "Bundle allowing to easily implement a chain of responsability pattern",
+    "name": "taluu/chain-of-responsibility-bundle",
+    "description": "Bundle allowing to easily implement a chain of responsibility pattern",
     "type": "library",
     "license": "MIT",
 
@@ -25,7 +25,7 @@
 
     "autoload": {
         "psr-4": {
-            "ChainOfResponsabilityBundle\\": ["./src", "./test"]
+            "ChainOfResponsibilityBundle\\": ["./src", "./test"]
         }
     }
 }

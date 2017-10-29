@@ -1,5 +1,5 @@
 <?php
-namespace ChainOfResponsabilityBundle;
+namespace ChainOfResponsibilityBundle;
 
 /**
  * Basic (empty) interface so that an object is given

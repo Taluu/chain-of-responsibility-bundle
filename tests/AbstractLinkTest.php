@@ -1,5 +1,5 @@
 <?php
-namespace ChainOfResponsabilityBundle;
+namespace ChainOfResponsibilityBundle;
 
 use Countable;
 use PHPUnit\Framework\TestCase;

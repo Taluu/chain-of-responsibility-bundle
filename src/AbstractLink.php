@@ -1,5 +1,5 @@
 <?php
-namespace ChainOfResponsabilityBundle;
+namespace ChainOfResponsibilityBundle;
 
 /** Base class implementation for a Chain Responsibility object */
 abstract class AbstractLink implements LinkInterface
