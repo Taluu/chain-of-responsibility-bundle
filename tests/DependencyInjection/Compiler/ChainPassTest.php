@@ -17,9 +17,16 @@ class ChainPassTest extends TestCase
     public function test_no_lists_no_chains()
     {
         $container = $this->prophesize(ContainerBuilder::class);
-        $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_LINKS)->willReturn([])->shouldBeCalled();
+        $container
+            ->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAINS)
+            ->willReturn([])
+            ->shouldBeCalled()
+        ;
 
-        $container->getDefinition(Argument::cetera())->shouldNotBeCalled();
+        $container
+            ->getDefinition(Argument::cetera())
+            ->shouldNotBeCalled()
+        ;
 
         $pass = new ChainPass;
         $pass->process($container->reveal());
@@ -30,15 +37,36 @@ class ChainPassTest extends TestCase
         $barDefinition = new Definition;
 
         $fooDefinition = $this->prophesize(Definition::class);
-        $fooDefinition->addMethodCall('setSuccessor', [$barDefinition])->shouldBeCalled();
+        $fooDefinition
+            ->addMethodCall('setSuccessor', [$barDefinition])
+            ->shouldBeCalled()
+        ;
 
         $container = $this->prophesize(ContainerBuilder::class);
-        $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_LINKS)->willReturn(['foo', 'bar'])->shouldBeCalled();
+        $container
+            ->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAINS)
+            ->willReturn(['foo' => ['bar', 'baz']])
+            ->shouldBeCalled()
+        ;
 
-        $container->setAlias(LinkInterface::class, Argument::which('isPublic', false))->shouldBeCalled();
+        $container
+            ->setAlias(
+                sprintf(ChainOfResponsabilityExtension::SERVICE_TEMPLATE, 'foo'),
+                Argument::which('isPublic', false)
+            )->shouldBeCalled()
+        ;
 
-        $container->getDefinition('foo')->willReturn($fooDefinition)->shouldBeCalled();
-        $container->getDefinition('bar')->willReturn($barDefinition)->shouldBeCalled();
+        $container
+            ->getDefinition('bar')
+            ->willReturn($fooDefinition)
+            ->shouldBeCalled()
+        ;
+
+        $container
+            ->getDefinition('baz')
+            ->willReturn($barDefinition)
+            ->shouldBeCalled()
+        ;
 
         $pass = new ChainPass;
         $pass->process($container->reveal());

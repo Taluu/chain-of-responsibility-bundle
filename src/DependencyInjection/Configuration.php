@@ -22,8 +22,11 @@ class Configuration implements ConfigurationInterface
     {
         $root
             ->children()
-                ->arrayNode('chain')
-                    ->prototype('scalar')->end()
+                ->arrayNode('chains')
+                    ->useAttributeAsKey('name')
+                    ->arrayPrototype()
+                        ->scalarPrototype()
+                    ->end()
                 ->end()
             ->end()
         ;

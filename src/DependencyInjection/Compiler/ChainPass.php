@@ -12,26 +12,29 @@ class ChainPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $links = $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAIN_LINKS);
-        $tip = array_shift($links);
+        $chains = $container->getParameter(ChainOfResponsabilityExtension::PARAMETER_CHAINS);
 
-        // no tip... no chain
-        if (null === $tip) {
-            return;
-        }
+        foreach ($chains as $name => $links) {
+            $tip = array_shift($links);
 
-        $previous = $container->getDefinition($tip);
+            // no tip... no chain
+            if (null === $tip) {
+                continue;
+            }
 
-        $tip = new Alias($tip);
-        $tip->setPublic(false);
+            $previous = $container->getDefinition($tip);
 
-        $container->setAlias(LinkInterface::class, $tip);
+            $tip = new Alias($tip);
+            $tip->setPublic(false);
 
-        foreach ($links as $link) {
-            $link = $container->getDefinition($link);
+            $container->setAlias(sprintf(ChainOfResponsabilityExtension::SERVICE_TEMPLATE, $name), $tip);
 
-            $previous->addMethodCall('setSuccessor', [$link]);
-            $previous = $link;
+            foreach ($links as $link) {
+                $link = $container->getDefinition($link);
+
+                $previous->addMethodCall('setSuccessor', [$link]);
+                $previous = $link;
+            }
         }
     }
 }

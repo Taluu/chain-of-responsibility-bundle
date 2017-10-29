@@ -7,11 +7,12 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class ChainOfResponsabilityExtension extends Extension
 {
-    const PARAMETER_CHAIN_LINKS = 'chain_of_responsability.links';
+    const SERVICE_TEMPLATE = 'chain_of_responsability.chain.%s';
+    const PARAMETER_CHAINS = 'chain_of_responsability.chains';
 
     public function load(array $configs, ContainerBuilder $container)
     {
         $config = $this->processConfiguration(new Configuration, $configs);
-        $container->setParameter(self::PARAMETER_CHAIN_LINKS, $config['chain']);
+        $container->setParameter(self::PARAMETER_CHAINS, $config['chains']);
     }
 }
