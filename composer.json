@@ -3,6 +3,7 @@
     "description": "Bundle allowing to easily implement a chain of responsibility pattern",
     "type": "library",
     "license": "MIT",
+    "keywords": ["design pattern", "chain of responsibility", "pattern"],
 
     "authors": [
         {
